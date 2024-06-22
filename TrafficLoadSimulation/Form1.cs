@@ -53,7 +53,7 @@ namespace TrafficLoadSimulation
             }
             else
             {
-                requests = new Requests(textBox1.Text,comboBox1.SelectedItem.ToString(),textBox5.Text);
+                requests = new Requests(textBox1.Text,comboBox1.SelectedItem.ToString(),textBox5.Text,textBox4.Text);
                 textBox3.Text =  (await requests.start()).ToString();
             }
     }

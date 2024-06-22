@@ -55,6 +55,7 @@
             textBox4 = new TextBox();
             textBox3 = new TextBox();
             label5 = new Label();
+            label7 = new Label();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)chart1).BeginInit();
@@ -247,13 +248,14 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(label7);
             tabPage4.Controls.Add(textBox5);
             tabPage4.Location = new Point(4, 24);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new Padding(3);
             tabPage4.Size = new Size(433, 274);
             tabPage4.TabIndex = 1;
-            tabPage4.Text = "tabPage4";
+            tabPage4.Text = "Token";
             tabPage4.UseVisualStyleBackColor = true;
             // 
             // textBox5
@@ -298,6 +300,15 @@
             label5.Size = new Size(57, 15);
             label5.TabIndex = 13;
             label5.Text = "Response";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(6, 25);
+            label7.Name = "label7";
+            label7.Size = new Size(57, 15);
+            label7.TabIndex = 1;
+            label7.Text = "Jwt token";
             // 
             // Form1
             // 
@@ -351,5 +362,6 @@
         private TabPage tabPage3;
         private TabPage tabPage4;
         private TextBox textBox5;
+        private Label label7;
     }
 }

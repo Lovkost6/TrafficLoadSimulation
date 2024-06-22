@@ -8,6 +8,7 @@ using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
 namespace TrafficLoadSimulation
 {
@@ -18,20 +19,29 @@ namespace TrafficLoadSimulation
 
         private string Bearer { get; set; }
 
+        public string? JsonBody { get; set; }
+
         HttpResponseMessage response;
-        public Requests(string url, string methodHttp, string bearer)
+        public Requests(string url, string methodHttp, string bearer, string? jsonBody)
         {
             Url = url;
             MethodHttp = new HttpMethod(methodHttp);
             Bearer = bearer;
+            JsonBody = jsonBody;
         }
 
         public async Task<string> start()
         {
+            var jsonContent = new StringContent(content: JsonBody, Encoding.UTF8, "application/json");
 
             var httpClient = new HttpClient();
-            var requestMessage = new HttpRequestMessage(MethodHttp,Url);
-            if (Bearer != null)
+            var requestMessage = new HttpRequestMessage{
+                Method = MethodHttp,
+                RequestUri = new Uri(Url),
+                Content = jsonContent
+            };
+            
+            if (!string.IsNullOrEmpty(Bearer))
             {
                 requestMessage.Headers.Add("Authorization", $"Bearer {Bearer}");
             }
